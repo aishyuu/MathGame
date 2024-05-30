@@ -1,39 +1,21 @@
-﻿Console.WriteLine("Please type your name");
+﻿
+using MathGame;
 
-var name = Console.ReadLine();
-var date = DateTime.UtcNow;
+Menu menu = new Menu();
 
-Console.WriteLine("-----------------------------------------------------------");
-Console.WriteLine($"Hello {name.ToUpper()}. It's {date}. This is your math's game. That's great that you're working on improving yourself\n");
-Console.WriteLine($@"What are ya gonna play? You got:
-A - Addition
-S - Subtraction
-M - Multiplication
-D - Division
-Q - Quit the program");
-Console.WriteLine("-----------------------------------------------------------");
+string name = GetName();
 
-var gameSelected = Console.ReadLine();
+DateTime date = DateTime.UtcNow;
 
-switch(gameSelected.ToLower().Trim())
+List<string> history = new List<string>();
+
+bool isGameOn = true;
+
+menu.ShowMenu(name, date);
+
+string GetName()
 {
-    case "a":
-        Console.WriteLine("Addition Selected");
-        break;
-
-    case "s":
-        Console.WriteLine("Subtraction Selected");
-        break;
-
-    case "m":
-        Console.WriteLine("Multiplication Selected");
-        break;
-
-    case "d":
-        Console.WriteLine("Multiplication Selected");
-        break;
-
-    default:
-        Console.WriteLine("Invalid Input");
-        break;
+    Console.WriteLine("Please type your name");
+    var name = Console.ReadLine();
+    return name;
 }
